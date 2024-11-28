@@ -22,7 +22,6 @@ export const getAllModerators = async (req: AuthenticatedUser, res: Response): P
             });
         }
 
-        // Return the filtered user data
         return res.status(200).json({
             success: true,
             message: "User data retrieved successfully!",
