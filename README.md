@@ -237,3 +237,67 @@ All protected routes require an **Authorization header** containing a valid **JW
 If a user tries to access a resource they are not authorized for, the API will respond with a `403 Forbidden` status code.
 
 
+## File Hierarchy
+
+Below is the structure of the project directory, including the key files and their purposes:
+
+├── src
+│   ├── config
+│   │   └── dbConnect.ts           # Database connection setup
+│   ├── controllers
+│   │   ├── adminController.ts     # Admin-related request handling
+│   │   ├── authUser.ts           # Authentication-related logic
+│   │   ├── moderatorController.ts # Moderator-related request handling
+│   │   └── userController.ts      # User-related request handling
+│   ├── middleware
+│   │   ├── authMiddleware.ts      # Middleware for authentication
+│   │   └── ratelimiterMiddleware.ts # Rate limiting middleware
+│   ├── models
+│   │   └── Users.ts               # User model (Mongoose schema)
+│   ├── routes
+│   │   ├── accessRoutes.ts        # Routes for access control
+│   │   └── authRoutes.ts          # Routes for authentication
+│   ├── utils
+│   │   └── sendMail.ts            # Utility for sending emails
+│   └── index.ts                   # Main entry point to the app
+├── .gitignore                    # Specifies files and directories to be ignored by Git
+├── package-lock.json              # Automatically generated file that locks down dependencies
+├── package.json                  # Project metadata and dependencies
+├── README.md                     # Project documentation
+└── tsconfig.json                 # TypeScript configuration file
+
+
+### Explanation of Key Files and Folders
+
+- **`src/controllers/`**: Contains controller files that handle the logic for various types of users.
+  - `adminController.ts`: Manages routes specific to Admin users.
+  - `authUser.ts`: Handles user authentication (login, register).
+  - `moderatorController.ts`: Handles routes specific to Moderator users.
+  - `userController.ts`: Manages user-specific routes.
+
+- **`src/middleware/`**: Contains middleware for various functionalities.
+  - `authMiddleware.ts`: Checks if the request has a valid JWT token and handles user authentication.
+  - `ratelimiterMiddleware.ts`: Implements rate-limiting to prevent abuse (too many requests from the same user/IP).
+
+- **`src/models/`**: Contains Mongoose models to interact with the MongoDB database.
+  - `Users.ts`: Defines the user schema and model for managing user data.
+
+- **`src/routes/`**: Defines API routes for authentication and resource access.
+  - `accessRoutes.ts`: Defines routes for users with different access levels (Admin, Moderator, User).
+  - `authRoutes.ts`: Contains routes for handling user authentication (login, register).
+
+- **`src/services/`**: Contains business logic related to various operations.
+  - `userService.ts`: Includes functions for user registration, login, and user-related operations.
+
+- **`src/utils/`**: Contains utility functions used throughout the application.
+  - `sendMail.ts`: A utility function to send emails (such as for password resets or user registration).
+
+- **`src/app.ts`**: The main application setup file, which initializes the Express server, connects routes, and applies middleware.
+
+### Other Important Files
+
+- **`.env`**: Contains environment-specific variables such as the MongoDB connection string and JWT secret key.
+- **`package.json`**: Contains metadata about the project, such as dependencies, scripts, and project information.
+- **`tsconfig.json`**: Configuration file for TypeScript, defining compiler options and file includes.
+- **`README.md`**: This file contains project documentation.
+
