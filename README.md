@@ -240,8 +240,9 @@ If a user tries to access a resource they are not authorized for, the API will r
 ## File Hierarchy
 
 Below is the structure of the project directory, including the key files and their purposes:
+   ```bash
 
-├── src
+├── src 
 │   ├── config
 │   │   └── dbConnect.ts           # Database connection setup
 │   ├── controllers
@@ -265,6 +266,7 @@ Below is the structure of the project directory, including the key files and the
 ├── package.json                  # Project metadata and dependencies
 ├── README.md                     # Project documentation
 └── tsconfig.json                 # TypeScript configuration file
+```
 
 
 ### Explanation of Key Files and Folders
